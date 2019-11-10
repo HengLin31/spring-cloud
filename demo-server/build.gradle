@@ -1,0 +1,25 @@
+dependencies {
+    implementation project(':core')
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+    implementation 'mysql:mysql-connector-java:8.0.18'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.1.2.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    implementation 'org.springframework:springloaded:1.2.8.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+}
+
+docker {
+    springBootApplication {
+        baseImage = 'openjdk:jre-alpine'
+        maintainer = 'heng-lin'
+        ports = [8081]
+    }
+}

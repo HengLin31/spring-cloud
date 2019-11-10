@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: demo-server
+  datasource:
+    username: ${DATASOURCE_USERNAME:root}
+    password: ${DATASOURCE_PASSWORD:123456}
+    driver-class-name: ${DATASOURCE_DRIVER:com.mysql.jdbc.Driver}
+    url: jdbc:${DATASOURCE_DBTYPE:mysql}://${DATASOURCE_HOST:localhost}:${DATASOURCE_PORT:3306}/sc_product?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+
+mybatis:
+  type-aliases-package: pers.henglin.core.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}-${server.port}
+    prefer-ip-address: true
+
+info:
+  server.name: ${spring.application.name}
