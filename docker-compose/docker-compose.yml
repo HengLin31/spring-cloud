@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: sc-mysql
+    restart: always
+    networks:
+      - sc-net
+    ports:
+      - 3306:3306
+    volumes:
+      - ../data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+
+  demo-server:
+    image: pers.henglin/demo-server:0.0.1-snapshot
+    container_name: sc-demo-server
+    networks:
+      - sc-net
+    ports:
+      - 8081:8081
+    env_file: spring-cloud.env
+    depends_on:
+      - eureka
+
+  eureka:
+    image: pers.henglin/eureka:0.0.1-snapshot
+    container_name: sc-eureka
+    networks:
+      - sc-net
+    ports:
+      - 8761:8761
+    env_file: spring-cloud.env
+
+networks:
+  sc-net:
+    external: false
