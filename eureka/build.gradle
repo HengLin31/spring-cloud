@@ -8,7 +8,7 @@ dependencies {
 docker {
     springBootApplication {
         baseImage = 'openjdk:jre-alpine'
-        maintainer = 'heng-lin'
+        maintainer = 'heng-lin "enjoymycodinglife@gmail.com"'
         ports = [8761]
     }
 }
