@@ -11,4 +11,5 @@ rootProject.name = 'spring-cloud'
 include 'core'
 include 'eureka'
 include 'demo-server'
+include 'demo-client'
 

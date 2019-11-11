@@ -24,6 +24,15 @@ services:
     depends_on:
       - eureka
 
+  demo-client:
+    image: pers.henglin/demo-client:0.0.1-snapshot
+    container_name: sc-demo-client
+    networks:
+      - sc-net
+    ports:
+      - 8080:8080
+    env_file: spring-cloud.env
+
   eureka:
     image: pers.henglin/eureka:0.0.1-snapshot
     container_name: sc-eureka

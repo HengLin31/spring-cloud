@@ -1,0 +1,21 @@
+dependencies {
+    implementation project(':core')
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.1.2.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon:2.1.2.RELEASE'
+}
+
+docker {
+    springBootApplication {
+        baseImage = 'openjdk:jre-alpine'
+        maintainer = 'heng-lin "enjoymycodinglife@gmail.com"'
+        ports = [8080]
+    }
+}
